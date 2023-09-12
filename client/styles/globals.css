@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: "Noto Sans JP", sans-serif;
+    }
+
+    body {
+        margin: 0;
+        background-color: #3f3f3f;
+    }
+}
+
+@layer utilities {
+    .transform-img {
+        transform: translateY(5rem) translateX(-1rem);
+    }
+
+    .font-inherit {
+        font-size: inherit;
+        font-family: inherit;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .custom-border {
+        border: none;
+        border: 1px solid #ccc;
+    }
+
+    .cart-item-border {
+        border-bottom: 2px solid #8a2b06;
+    }
+}
+
+@layer components {
+    .cart-btn {
+        @apply font-inherit cursor-pointer bg-transparent custom-border py-2 px-8 rounded-3xl ml-4 hover:bg-yellow-980 hover:border-yellow-980 hover:text-white active:bg-yellow-980 active:border-yellow-980 active:text-white transition-colors;
+    }
+
+    .cart-item-btn {
+        @apply font-inherit font-bold text-xl text-yellow-750 border border-solid border-yellow-750 w-12 text-center rounded-md bg-transparent cursor-pointer ml-4 m-1 hover:bg-yellow-750 hover:text-white active:bg-yellow-750 active:text-white transition-colors;
+    }
+
+    .checkout-btn {
+        @apply font-inherit text-yellow-980 cursor-pointer bg-transparent border-none rounded-3xl py-2 px-8 hover:bg-red-150 active:bg-red-150 transition-colors;
+    }
+
+    .spinner {
+        @apply h-12 w-12 animate-rotate text-gray-750;
+    }
+}
