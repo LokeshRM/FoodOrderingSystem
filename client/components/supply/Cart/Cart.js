@@ -16,7 +16,7 @@ const Cart = (props) => {
 
     const handleSubmitOrder = async (userData) => {
         setIsSubmitting(true);
-        await fetch("http://localhost:8000/addItems", {
+        await fetch("https://fos-backend.up.railway.app/addItems", {
             method: "POST",
             // mode: "no-cors",
             body: JSON.stringify({
@@ -59,7 +59,7 @@ const Cart = (props) => {
     );
 
     const isSubmittingModalContent = (
-        <p className="text-2xl">Sending order data...</p>
+        <p className="text-2xl">Sending item data...</p>
     );
 
     const didSubmitModalContent = (

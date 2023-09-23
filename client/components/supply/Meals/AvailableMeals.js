@@ -12,16 +12,19 @@ const AvailableMeals = () => {
 
     useEffect(() => {
         const fetchMeals = async () => {
-            const response = await fetch("http://localhost:8000/supplyItems", {
-                method: "POST",
-                // mode: "no-cors",
-                body: JSON.stringify({
-                    supply_id: localStorage.getItem("supply_id"),
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const response = await fetch(
+                "https://fos-backend.up.railway.app/supplyItems",
+                {
+                    method: "POST",
+                    // mode: "no-cors",
+                    body: JSON.stringify({
+                        supply_id: localStorage.getItem("supply_id"),
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
             if (!response.ok) throw new Error("Something went wrong!");
 
@@ -30,11 +33,11 @@ const AvailableMeals = () => {
             const loadedMeals = [];
             for (const key in responseData) {
                 loadedMeals.push({
-                    id: responseData[key].FOOD_ID,
-                    name: responseData[key].NAME,
-                    description: responseData[key].DESCRIPTION,
-                    price: +responseData[key].PRICE,
-                    supply_id: responseData[key].SUPPLY_ID,
+                    id: responseData[key].food_id,
+                    name: responseData[key].name,
+                    description: responseData[key].description,
+                    price: +responseData[key].price,
+                    supply_id: responseData[key].supply_id,
                 });
             }
             console.log("is running");
@@ -50,7 +53,7 @@ const AvailableMeals = () => {
                 clearTimeout(timer);
             };
         }, 300);
-        setInterval(fetchMeals, 5000);
+        setInterval(fetchMeals, 10000);
     }, []);
 
     const mealsList = meals.map((meal) => (

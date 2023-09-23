@@ -13,18 +13,21 @@ const Order = (props) => {
     const [orderItems, setOrderItems] = useState([]);
     useEffect(() => {
         const getFunction = async () => {
-            const res = await fetch("http://localhost:8000/getOrders", {
-                method: "POST",
-                // mode: "no-cors",
-                body: JSON.stringify({
-                    cust_id: localStorage.getItem("custId"),
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            const res = await fetch(
+                "https://fos-backend.up.railway.app/getOrders",
+                {
+                    method: "POST",
+                    // mode: "no-cors",
+                    body: JSON.stringify({
+                        cust_id: localStorage.getItem("custId"),
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
             let data = await res.json();
-            console.log(data[0].cust_name);
+            console.log(data);
 
             setOrderItems(data);
         };
@@ -36,14 +39,15 @@ const Order = (props) => {
     const orderList = orderItems.map((item) => {
         return (
             <OrderItem
+                key={item.delivery_id}
                 name={item.cust_name}
                 address={item.cust_address}
                 mob={item.phno}
                 foodname={item.food_name}
-                quantity={item.quantity}
+                quantity={item.food_quantity}
                 price={item.payment}
-                date={item.date}
-                time={item.time}
+                date={item.order_date}
+                time={item.order_time}
             />
         );
     });

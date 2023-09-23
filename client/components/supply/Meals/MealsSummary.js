@@ -4,8 +4,8 @@ const MealsSummary = () => {
             <h2 className="mt-0 font-bold text-3xl md:text-[2rem]">
                 Welcome to Foodie kart !
             </h2>
-            <p>Order delicious food any time any where</p>
-            <p>We are here to give you the best experience of Indian cusine!</p>
+            <p>Best place to get best experience</p>
+            <p>We are here to connect you guys with crazy food enthusiasts</p>
         </section>
     );
 };

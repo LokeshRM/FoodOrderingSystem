@@ -33,7 +33,7 @@ export default function Home() {
     };
 
     const handleSubmitSupplier = async (userData) => {
-        const res = await fetch("http://localhost:8000/supplier", {
+        const res = await fetch("https://fos-backend.up.railway.app/supplier", {
             method: "POST",
             // mode: "no-cors",
             body: JSON.stringify(userData),
@@ -48,7 +48,7 @@ export default function Home() {
     };
 
     const handleSubmitCustomer = async (userData) => {
-        const res = await fetch("http://localhost:8000/customer", {
+        const res = await fetch("https://fos-backend.up.railway.app/customer", {
             method: "POST",
             // mode: "no-cors",
             body: JSON.stringify(userData),

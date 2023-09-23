@@ -15,7 +15,12 @@ const OrderItem = (props) => {
                 <p>User Name : {props.name}</p>
                 <p>{props.address}</p>
                 <p>Phone no : {props.mob}</p>
-                <p>Date : {new Date(props.date).toUTCString().slice(0, -13)}</p>
+                <p>
+                    Date :{" "}
+                    {new Date(props.date)
+                        .toLocaleString(undefined, { timeZone: "Asia/Kolkata" })
+                        .slice(0, -13)}
+                </p>
             </div>
         </div>
     );

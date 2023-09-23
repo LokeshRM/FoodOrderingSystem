@@ -12,7 +12,9 @@ const AvailableMeals = () => {
 
     useEffect(() => {
         const fetchMeals = async () => {
-            const response = await fetch("http://localhost:8000/food");
+            const response = await fetch(
+                "https://fos-backend.up.railway.app/food"
+            );
 
             if (!response.ok) throw new Error("Something went wrong!");
 
@@ -21,12 +23,12 @@ const AvailableMeals = () => {
             const loadedMeals = [];
             for (const key in responseData) {
                 loadedMeals.push({
-                    id: responseData[key].FOOD_ID,
-                    name: responseData[key].NAME,
-                    description: responseData[key].DESCRIPTION,
-                    price: +responseData[key].PRICE,
-                    supply_id: responseData[key].SUPPLY_ID,
-                    restro: responseData[key].SUPPLY_NAME,
+                    id: responseData[key].food_id,
+                    name: responseData[key].name,
+                    description: responseData[key].description,
+                    price: +responseData[key].price,
+                    supply_id: responseData[key].supply_id,
+                    restro: responseData[key].supply_name,
                 });
             }
             console.log("is running");
@@ -38,7 +40,7 @@ const AvailableMeals = () => {
             setIsLoading(false);
             setHttpError(error.message);
         });
-        setInterval(fetchMeals, 5050);
+        setInterval(fetchMeals, 50000);
     }, []);
 
     const mealsList = meals.map((meal) => (

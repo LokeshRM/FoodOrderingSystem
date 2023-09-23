@@ -3,7 +3,7 @@ const HeaderDeliveryButton = (props) => {
 
     return (
         <button className={btnClasses} onClick={props.onClick}>
-            <span className="text-sm md:text-base">Your Orders</span>
+            <span className="text-sm md:text-base">Order Requests</span>
         </button>
     );
 };

@@ -18,10 +18,11 @@ const Cart = (props) => {
     const [didSubmit, setDidSubmit] = useState(false);
     const cartContext = useContext(CartContext);
 
-    const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
+    const totalAmount = `Rs ${cartContext.totalAmount.toFixed(2)}`;
     const hasItems = cartContext.items.length > 0;
 
     const handleCartItemAdd = (item) => {
+        item.type = "2";
         cartContext.addItem(item);
     };
     const handleCartItemRemove = (id) => {
@@ -38,7 +39,7 @@ const Cart = (props) => {
 
     const handleSubmitOrder = async (userData) => {
         setIsSubmitting(true);
-        await fetch("http://localhost:8000/submit", {
+        await fetch("https://fos-backend.up.railway.app/submit", {
             method: "POST",
             // mode: "no-cors",
             body: JSON.stringify({
