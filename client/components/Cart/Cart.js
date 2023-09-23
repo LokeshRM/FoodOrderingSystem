@@ -56,9 +56,11 @@ const Cart = (props) => {
     };
 
     const cartItems = cartContext.items.map((cartItem) => (
-        <ul className="list-none m-0 p-0 max-h-80 overflow-auto">
+        <ul
+            className="list-none m-0 p-0 max-h-80 overflow-auto"
+            key={cartItem.id}
+        >
             <CartItem
-                key={cartItem.id}
                 id={cartItem.id}
                 name={cartItem.name}
                 amount={cartItem.amount}
