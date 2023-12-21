@@ -13,7 +13,7 @@ const AvailableMeals = () => {
     useEffect(() => {
         const fetchMeals = async () => {
             const response = await fetch(
-                "https://fos-backend.up.railway.app/supplyItems",
+                `${process.env.NEXT_PUBLIC_API_URL}/supplyItems`,
                 {
                     method: "POST",
                     // mode: "no-cors",
@@ -53,7 +53,7 @@ const AvailableMeals = () => {
                 clearTimeout(timer);
             };
         }, 300);
-        setInterval(fetchMeals, 10000);
+        setInterval(fetchMeals, 50000);
     }, []);
 
     const mealsList = meals.map((meal) => (

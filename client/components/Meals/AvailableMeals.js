@@ -13,7 +13,7 @@ const AvailableMeals = () => {
     useEffect(() => {
         const fetchMeals = async () => {
             const response = await fetch(
-                "https://fos-backend.up.railway.app/food"
+                `${process.env.NEXT_PUBLIC_API_URL}/food`
             );
 
             if (!response.ok) throw new Error("Something went wrong!");

@@ -97,11 +97,7 @@ function Login(props) {
                         Supplier{" "}
                     </button>
                 </div>
-                <div className="social-icons">
-                    <img src="/fb.jpg" />
-                    <img src="/google.jpg" />
-                    <img src="/tw.jpg" />
-                </div>
+
                 {!isRegister && (
                     <form className="input-group" onSubmit={handleSubmit}>
                         <input
@@ -130,7 +126,7 @@ function Login(props) {
                         ></textarea>
                         <button type="submit" className="submit-btn">
                             {" "}
-                            Login{" "}
+                            SignUp{" "}
                         </button>
                     </form>
                 )}
@@ -157,8 +153,7 @@ function Login(props) {
                         ></textarea>
 
                         <button type="submit" className="submit-btn">
-                            {" "}
-                            Login{" "}
+                            SignUp
                         </button>
                     </form>
                 )}

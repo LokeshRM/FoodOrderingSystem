@@ -14,7 +14,7 @@ const Order = (props) => {
     useEffect(() => {
         const getFunction = async () => {
             const res = await fetch(
-                "https://fos-backend.up.railway.app/getSupply",
+                `${process.env.NEXT_PUBLIC_API_URL}/getSupply`,
                 {
                     method: "POST",
                     // mode: "no-cors",

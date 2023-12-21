@@ -39,7 +39,7 @@ const Cart = (props) => {
 
     const handleSubmitOrder = async (userData) => {
         setIsSubmitting(true);
-        await fetch("https://fos-backend.up.railway.app/submit", {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/submit`, {
             method: "POST",
             // mode: "no-cors",
             body: JSON.stringify({
